@@ -1,5 +1,5 @@
 // importing orders and new orders to my main.js
-import {getOrders, addNewOrder} from './orders.js'
+import {getOrders, addNewOrder} from './orders.js';
 
 // using to display my html via JS
 document.getElementById('app').innerHTML = `
@@ -64,7 +64,7 @@ document.getElementById('app').innerHTML = `
             <input id="Onions" name="toppings" type="checkbox" value="Onions" />
             <label for="Onions">Onions</label>
           </li>
-          li>
+          <li>
             <input id="jalapenos" name="toppings" type="checkbox" value="jalapenos" />
             <label for="jalapenos">Spicy Jalapenos</label>
           </li>
@@ -116,7 +116,7 @@ const displayOrders = () => {
     // keeps it local
     let ordersHtml = "";
     const orders = getOrders()
-    orders.foreach(order => {
+    orders.forEach(order => {
         ordersHtml += 
         `<div>Bread:${order.bread}</div>
         <div>Meat:${order.meat}</div>
@@ -139,6 +139,9 @@ document.addEventListener('click', (e) => {
 
         const meatElement = document.querySelector("input[name=meat]:checked")?.value
         console.log(meatElement)
+
+        const toppingsElements = document.querySelectorAll("input[name=toppings]:checked")
+        console.log(toppingsElements)
 
         const toppingsArray = [];
         const toppings = toppingsElements.forEach(toppingElement => {toppingsArray.push(toppingElement.value)});
